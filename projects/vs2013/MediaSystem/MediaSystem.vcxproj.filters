@@ -4,18 +4,24 @@
     <Filter Include="include">
       <UniqueIdentifier>{15cfae90-168c-478f-8ca3-f9a40abc030d}</UniqueIdentifier>
     </Filter>
-    <Filter Include="lib">
-      <UniqueIdentifier>{2e455f4b-89f6-465c-83ca-7062bdb7b87b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ui">
       <UniqueIdentifier>{9bf14145-532f-43d7-a8f1-8a4dbe0cf7fc}</UniqueIdentifier>
     </Filter>
-    <Filter Include="uml">
-      <UniqueIdentifier>{32366884-0043-425e-9980-78b9433f45c8}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="sysconfig.h" />
-    <ClInclude Include="common.h" />
+    <ClInclude Include="..\..\..\common.h" />
+    <ClInclude Include="..\..\..\sysconfig.h" />
+    <ClInclude Include="..\..\..\include\wdm_dt.h">
+      <Filter>include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\include\wdm_gui.h">
+      <Filter>include</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\..\ui\ui_main.cpp">
+      <Filter>ui</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\main.cpp" />
   </ItemGroup>
 </Project>

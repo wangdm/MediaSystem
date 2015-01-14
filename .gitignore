@@ -19,10 +19,10 @@
 # Compiled Static libraries
 *.lai
 *.la
-*.a
-*.lib
 
 # Executables
 *.exe
 *.out
 *.app
+/projects/vs2013/MediaSystem.sdf
+/projects/vs2013/MediaSystem.v12.suo
