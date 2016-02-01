@@ -7,6 +7,18 @@
     <Filter Include="ui">
       <UniqueIdentifier>{9bf14145-532f-43d7-a8f1-8a4dbe0cf7fc}</UniqueIdentifier>
     </Filter>
+    <Filter Include="media">
+      <UniqueIdentifier>{40a896a4-3a76-49f4-b93d-39d85d13d034}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core">
+      <UniqueIdentifier>{b19db022-8173-4968-b6ee-ed66fa4792c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="authority">
+      <UniqueIdentifier>{61bfbb5b-a9df-4526-a419-0803027b7128}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="extlib">
+      <UniqueIdentifier>{d665e4fe-c1a8-4364-bd9e-83a4e7fe3168}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\common.h" />
@@ -17,11 +29,51 @@
     <ClInclude Include="..\..\..\include\wdm_gui.h">
       <Filter>include</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\ui\ui.h">
+      <Filter>ui</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\Makefile" />
+    <ClInclude Include="..\..\..\event.h" />
+    <ClInclude Include="..\..\..\message.h" />
+    <ClInclude Include="..\..\..\comport.h" />
+    <ClInclude Include="..\..\..\ethernet.h" />
+    <ClInclude Include="..\..\..\authority\user.h">
+      <Filter>authority</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\core\command.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\authority\session.h">
+      <Filter>authority</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\authority\usermanager.h">
+      <Filter>authority</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\authority\sessionmanager.h">
+      <Filter>authority</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\core\event.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\core\core.h">
+      <Filter>core</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\core\log.h">
+      <Filter>core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\ui\ui_main.cpp">
       <Filter>ui</Filter>
     </ClCompile>
     <ClCompile Include="..\..\..\main.cpp" />
+    <ClCompile Include="..\..\..\core\timer.h">
+      <Filter>core</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\core\config.h">
+      <Filter>core</Filter>
+    </None>
   </ItemGroup>
 </Project>

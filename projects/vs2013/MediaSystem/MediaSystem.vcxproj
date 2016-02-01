@@ -11,14 +11,32 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\authority\session.h" />
+    <ClInclude Include="..\..\..\authority\sessionmanager.h" />
+    <ClInclude Include="..\..\..\authority\user.h" />
+    <ClInclude Include="..\..\..\authority\usermanager.h" />
     <ClInclude Include="..\..\..\common.h" />
+    <ClInclude Include="..\..\..\comport.h" />
+    <ClInclude Include="..\..\..\core\command.h" />
+    <ClInclude Include="..\..\..\core\core.h" />
+    <ClInclude Include="..\..\..\core\event.h" />
+    <ClInclude Include="..\..\..\core\log.h" />
+    <ClInclude Include="..\..\..\ethernet.h" />
+    <ClInclude Include="..\..\..\event.h" />
     <ClInclude Include="..\..\..\include\wdm_dt.h" />
     <ClInclude Include="..\..\..\include\wdm_gui.h" />
+    <ClInclude Include="..\..\..\Makefile" />
+    <ClInclude Include="..\..\..\message.h" />
     <ClInclude Include="..\..\..\sysconfig.h" />
+    <ClInclude Include="..\..\..\ui\ui.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\core\timer.h" />
     <ClCompile Include="..\..\..\main.cpp" />
     <ClCompile Include="..\..\..\ui\ui_main.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\..\core\config.h" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{58335078-E250-49C5-9A42-06D1EC487481}</ProjectGuid>
@@ -48,7 +66,12 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <IncludePath>..\..\..;..\..\..\include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>..\..\..;..\..\..\include;$(IncludePath)</IncludePath>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>

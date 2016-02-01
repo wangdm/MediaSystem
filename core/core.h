@@ -1,0 +1,144 @@
+#ifndef _CORE_H_
+#define _CORE_H_
+
+#include "common.h"
+
+//////////////////////////////////////////////////////////////////////////
+// config struct
+//////////////////////////////////////////////////////////////////////////
+typedef struct wdm_config_s
+{
+
+}wdm_config_t;
+
+//////////////////////////////////////////////////////////////////////////
+// log struct
+//////////////////////////////////////////////////////////////////////////
+typedef struct wdm_log_s
+{
+
+}wdm_log_t;
+
+//////////////////////////////////////////////////////////////////////////
+// timer struct
+//////////////////////////////////////////////////////////////////////////
+typedef struct wdm_timer_s
+{
+
+}wdm_timer_t;
+
+//////////////////////////////////////////////////////////////////////////
+// command struct
+//////////////////////////////////////////////////////////////////////////
+typedef int(*command_handler_fn)(wdm_cmd_t * pcmd);
+
+typedef struct wdm_cmd_s
+{
+	uint32_t cmd_id;
+	uint16_t cattype;
+	uint16_t type;
+}wdm_cmd_t;
+
+typedef struct wdm_handler_s
+{
+	uint32_t cmd_id;
+	uint16_t cattype;
+	uint16_t type;
+	command_handler_fn handle;
+}wdm_handler_t;
+
+
+//////////////////////////////////////////////////////////////////////////
+// event struct
+//////////////////////////////////////////////////////////////////////////
+typedef int(*event_callback_fn)(wdm_event_t * pevent);
+
+typedef enum event_leve_e
+{
+	EVENT_LEVEL_DEBUG = 0,
+	EVENT_LEVEL_INFO,
+	EVENT_LEVEL_SUCCESS,
+	EVENT_LEVEL_WARN,
+	EVENT_LEVEL_ERROR,
+}event_leve_e;
+
+typedef struct wdm_event_s
+{
+	uint32_t id;
+	event_leve_e level;
+	const char * name;
+	const char * desc;
+}wdm_event_t;
+
+typedef struct wdm_listener_s
+{
+	uint16_t cattype;
+	uint16_t type;
+	event_callback_fn callback;
+}wdm_listener_t;
+
+
+//////////////////////////////////////////////////////////////////////////
+// io struct
+//////////////////////////////////////////////////////////////////////////
+
+/*************************************************************************
+**************************************************************************
+****
+**************************************************************************
+*************************************************************************/
+
+//////////////////////////////////////////////////////////////////////////
+// config interface
+//////////////////////////////////////////////////////////////////////////
+wdm_config_t * config_get_instance();
+uint32_t config_get_int_value(uint8_t *);
+uint32_t config_set_int_value(uint8_t *,uint32_t);
+const uint8_t * config_get_string_value(uint8_t *);
+const uint8_t * config_set_string_value(uint8_t *, uint8_t *);
+wdm_config_t * config_get_object_value(uint8_t *);
+wdm_config_t * config_set_object_value(uint8_t *, wdm_config_t *);
+
+//////////////////////////////////////////////////////////////////////////
+// log interface
+//////////////////////////////////////////////////////////////////////////
+
+
+//////////////////////////////////////////////////////////////////////////
+// timer interface
+//////////////////////////////////////////////////////////////////////////
+
+
+//////////////////////////////////////////////////////////////////////////
+// command interface
+//////////////////////////////////////////////////////////////////////////
+#define MK_CMD(cat,type) (((uint32_t)cat<16)|(uint32_t)type)
+#define CMD_CAT(cmd) ((uint16_t)(cmd>16))
+#define CMD_TYPE(cmd) ((uint16_t)(cmd&0xffff))
+
+wdm_handler_t *wdm_alloc_handler(uint32_t, command_handler_fn *);
+uint32_t wdm_free_handler(wdm_handler_t *);
+uint32_t wdm_register_handler(wdm_handler_t *);
+uint32_t wdm_unregister_handler(wdm_handler_t *);
+uint32_t wdm_register_command_handler(uint32_t, command_handler_fn *);
+uint32_t wdm_unregister_command_handler(uint32_t, command_handler_fn *);
+uint32_t wdm_unregister_command_allhandler(uint32_t);
+uint32_t wdm_execute_command(wdm_cmd_t *);
+uint32_t wdm_execute_command_direct(wdm_cmd_t *);
+
+//////////////////////////////////////////////////////////////////////////
+// event interface
+//////////////////////////////////////////////////////////////////////////
+wdm_listener_t * wdm_alloc_listener();
+uint32_t wdm_free_listener(wdm_listener_t *);
+uint32_t wdm_register_listener(wdm_listener_t *);
+uint32_t wdm_unregister_listener(wdm_listener_t *);
+uint32_t wdm_trigger_event(wdm_event_t *);
+
+
+//////////////////////////////////////////////////////////////////////////
+// io interface
+//////////////////////////////////////////////////////////////////////////
+
+
+#endif
