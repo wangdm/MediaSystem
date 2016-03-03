@@ -19,10 +19,11 @@
     <Filter Include="extlib">
       <UniqueIdentifier>{d665e4fe-c1a8-4364-bd9e-83a4e7fe3168}</UniqueIdentifier>
     </Filter>
+    <Filter Include="device">
+      <UniqueIdentifier>{a230c946-a3a3-4ff4-919d-945585ba9ad6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\common.h" />
-    <ClInclude Include="..\..\..\sysconfig.h" />
     <ClInclude Include="..\..\..\include\wdm_dt.h">
       <Filter>include</Filter>
     </ClInclude>
@@ -33,10 +34,6 @@
       <Filter>ui</Filter>
     </ClInclude>
     <ClInclude Include="..\..\..\Makefile" />
-    <ClInclude Include="..\..\..\event.h" />
-    <ClInclude Include="..\..\..\message.h" />
-    <ClInclude Include="..\..\..\comport.h" />
-    <ClInclude Include="..\..\..\ethernet.h" />
     <ClInclude Include="..\..\..\authority\user.h">
       <Filter>authority</Filter>
     </ClInclude>
@@ -61,15 +58,21 @@
     <ClInclude Include="..\..\..\core\log.h">
       <Filter>core</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\..\device\comport.h">
+      <Filter>device</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\device\ethernet.h">
+      <Filter>device</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\..\..\ui\ui_main.cpp">
       <Filter>ui</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\main.cpp" />
     <ClCompile Include="..\..\..\core\timer.h">
       <Filter>core</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\main.c" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\..\..\core\config.h">
